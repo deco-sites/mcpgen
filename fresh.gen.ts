@@ -3,14 +3,22 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $_app from "./routes/_app.tsx";
-
-import { type Manifest } from "$fresh/server.ts";
+import * as $FlickeringGrid from "./islands/FlickeringGrid.tsx";
+import * as $FooterAnimation from "./islands/FooterAnimation.tsx";
+import * as $HeroAnimation from "./islands/HeroAnimation.tsx";
+import * as $NavbarAnimation from "./islands/NavbarAnimation.tsx";
+import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
     "./routes/_app.tsx": $_app,
   },
-  islands: {},
+  islands: {
+    "./islands/FlickeringGrid.tsx": $FlickeringGrid,
+    "./islands/FooterAnimation.tsx": $FooterAnimation,
+    "./islands/HeroAnimation.tsx": $HeroAnimation,
+    "./islands/NavbarAnimation.tsx": $NavbarAnimation,
+  },
   baseUrl: import.meta.url,
 } satisfies Manifest;
 
