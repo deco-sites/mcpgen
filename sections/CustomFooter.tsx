@@ -4,15 +4,29 @@ import FooterAnimation from "../islands/FooterAnimation.tsx";
 export interface Props {
   /**
    * @title Footer Text
-   * @description Main text displayed in the footer
-   * @default made with ❤️ by carcara.tech
+   * @description Main text displayed in the footer (without the company name)
+   * @default made with ❤️ by
    */
   footerText?: string;
 
   /**
+   * @title Company Name
+   * @description Company name displayed after the footer text
+   * @default carcara.tech
+   */
+  companyName?: string;
+
+  /**
+   * @title Company URL
+   * @description URL where the company name will redirect
+   * @default https://carcara.tech
+   */
+  companyUrl?: string;
+
+  /**
    * @title Link Text
    * @description Text for the footer link
-   * @default See all generated MCPs
+   * @default Popular MCPs
    */
   linkText?: string;
 
@@ -24,6 +38,20 @@ export interface Props {
   linkUrl?: string;
 
   /**
+   * @title Feature Button Text
+   * @description Text for the suggest feature button
+   * @default Suggest a feature
+   */
+  featureButtonText?: string;
+
+  /**
+   * @title Feature Button URL
+   * @description URL where the feature button will redirect
+   * @default #
+   */
+  featureButtonUrl?: string;
+
+  /**
    * @title Enable Animations
    * @description Enable GSAP animations
    * @default true
@@ -32,9 +60,13 @@ export interface Props {
 }
 
 export default function CustomFooter({
-  footerText = "made with ❤️ by carcara.tech",
-  linkText = "See all generated MCPs",
+  footerText = "made with ❤️ by",
+  companyName = "carcara.tech",
+  companyUrl = "https://carcara.tech",
+  linkText = "Popular MCPs",
   linkUrl = "#",
+  featureButtonText = "Suggest a feature",
+  featureButtonUrl = "#",
   enableAnimations = true,
 }: Props) {
   const footerId = useId();
@@ -86,6 +118,15 @@ export default function CustomFooter({
           transform: scaleX(1);
           transform-origin: bottom left;
         }
+        
+        .company-link {
+          transition: all 0.2s ease-in-out;
+          font-weight: 500;
+        }
+        
+        .company-link:hover {
+          color: #f97316;
+        }
       `,
         }}
       />
@@ -96,16 +137,32 @@ export default function CustomFooter({
       >
         <div class="w-full flex justify-center items-center gap-6">
           <div class="text-neutral-950 text-base font-medium leading-tight tracking-tight">
-            {footerText}
+            {footerText}{" "}
+            <a
+              href={companyUrl}
+              class="company-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {companyName}
+            </a>
           </div>
           <div class="hidden md:block w-px h-10 border-r border-neutral-400">
           </div>
-          <div class="flex justify-center items-center gap-2.5">
+          <div class="flex justify-center items-center gap-5">
             <a
               href={linkUrl}
               class="footer-link text-center text-zinc-800 text-base font-normal underline leading-none tracking-tight"
             >
               {linkText}
+            </a>
+            <div class="hidden md:block w-px h-6 border-r border-neutral-300">
+            </div>
+            <a
+              href={featureButtonUrl}
+              class="footer-link text-center text-zinc-800 text-base font-normal underline leading-none tracking-tight"
+            >
+              {featureButtonText}
             </a>
           </div>
         </div>

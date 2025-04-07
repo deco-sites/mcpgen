@@ -12,7 +12,11 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "site/sections/Hero.tsx"
+        "__resolveType": "site/sections/Hero.tsx",
+        "titleFirstPart": "Turn ",
+        "titleHighlight": "any API documentation",
+        "titleLastPart": "into a simple MCP server.",
+        "descriptionText": "Enter your documentation link here and generate a brand new MCP Server"
       }
     },
     {

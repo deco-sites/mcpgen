@@ -2316,6 +2316,9 @@ html {
 .h-5 {
   height: 1.25rem;
 }
+.h-6 {
+  height: 1.5rem;
+}
 .h-8 {
   height: 2rem;
 }
@@ -2556,14 +2559,14 @@ html {
 .gap-2 {
   gap: 0.5rem;
 }
-.gap-2\.5 {
-  gap: 0.625rem;
-}
 .gap-3 {
   gap: 0.75rem;
 }
 .gap-4 {
   gap: 1rem;
+}
+.gap-5 {
+  gap: 1.25rem;
 }
 .gap-6 {
   gap: 1.5rem;
